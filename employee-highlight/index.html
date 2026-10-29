@@ -662,10 +662,11 @@ function renderBgGrid() {
   }
 }
 function updateBgControls() {
-  var show = isImageBg();
-  document.getElementById('bg-zoom-row').hidden = !show;
-  document.getElementById('bg-opacity-row').hidden = !show;
-  document.getElementById('bg-drag-hint').hidden = !show;
+  // App #2 uses a locked CIQ background — the background customization controls
+  // (swatches, resize, opacity, drag hint) are intentionally never shown here.
+  document.getElementById('bg-zoom-row').hidden = true;
+  document.getElementById('bg-opacity-row').hidden = true;
+  document.getElementById('bg-drag-hint').hidden = true;
 }
 function refreshBg() { renderBgGrid(); updateBgControls(); renderPreview(); save(); }
 bgInput.addEventListener('change', (e) => {
