@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <meta name="claude:viewport-fit-sides" content="cover">
 <title>Welcome Card Maker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -261,8 +262,8 @@
     </div>
     <span id="bg-drag-hint" style="font-size:11px;color:var(--faint);line-height:1.4;" hidden>Drag the background in the preview to reposition.</span>
 
-    <div class="section-label" hidden>Colors</div>
-    <div class="row2" hidden>
+    <div class="section-label" hidden style="display:none !important">Colors</div>
+    <div class="row2" hidden style="display:none !important">
       <div class="fld">
         <label for="c-accent">Accent</label>
         <div class="color-fld"><input type="color" id="c-accent"><span class="hex" id="c-accent-hex"></span></div>
@@ -845,3 +846,5 @@ bw.checked = !!state.bw; vibrance.value = Math.round(state.saturate * 100); brig
 renderPreview();
 if (document.fonts) document.fonts.ready.then(fitPreview);
 </script>
+
+</body></html>
