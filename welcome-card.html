@@ -650,6 +650,8 @@ function swatch(active, bg, title, onClick) {
 }
 function renderBgGrid() {
   bgGrid.innerHTML = '';
+  if (state.bgMode === 'custom') { state.bgMode = 'color'; }
+  state.customBg = null;
   bgGrid.appendChild(swatch(state.bgMode === 'color', state.bg, 'Solid',
     () => { state.bgMode = 'color'; refreshBg(); }));
   PRESETS.forEach((pr, i) => {
@@ -657,20 +659,6 @@ function renderBgGrid() {
     bgGrid.appendChild(swatch(state.bgMode === 'preset' && state.presetId === i, sw, pr.name,
       () => { state.bgMode = 'preset'; state.presetId = i; refreshBg(); }));
   });
-  if (state.customBg) {
-    bgGrid.appendChild(swatch(state.bgMode === 'custom', 'url("' + state.customBg + '") center/cover', 'Hexagon',
-      () => { state.bgMode = 'custom'; refreshBg(); }));
-  } else {
-    const cell = document.createElement('div');
-    cell.className = 'bg-cell';
-    const up = document.createElement('div');
-    up.className = 'bg-swatch upload'; up.textContent = '+'; up.title = 'Upload a background';
-    up.addEventListener('click', () => bgInput.click());
-    const cap = document.createElement('div');
-    cap.className = 'bg-name'; cap.textContent = 'Upload';
-    cell.appendChild(up); cell.appendChild(cap);
-    bgGrid.appendChild(cell);
-  }
 }
 function updateBgControls() {
   var show = isImageBg();
